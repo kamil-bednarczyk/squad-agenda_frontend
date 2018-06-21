@@ -8,14 +8,17 @@ import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http';
 import {Router, RouterModule, Routes} from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import {AppService} from './service/app.servcie';
+import {HeaderComponent} from './header/header.component';
 
 const appRoutes: Routes = [
-  {path: 'register', component: RegistrationComponent}
+  {path: 'register', component: RegistrationComponent},
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
     RegistrationComponent,
     LoginComponent
   ],

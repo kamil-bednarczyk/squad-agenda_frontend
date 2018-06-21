@@ -1,0 +1,30 @@
+/* Style the navbar */
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+#navbar{
+  background-color: #f47d42;
+}
+
+/* Navbar links */
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+#navbar a:hover{
+  background-color:#f2f2f2;
+  color: #f47d42;
+}
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+

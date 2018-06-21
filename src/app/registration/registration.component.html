@@ -17,9 +17,9 @@
         <div class="form-group">
           <label for="password">Password</label>
           <input type="password" id="password"
-          class="form-control"
-          formControlName="password"
-          required>
+                 class="form-control"
+                 formControlName="password"
+                 required>
           <span class="help-block"
                 *ngIf="!registrationForm.controls['password'].valid && registrationForm.controls['password'].touched">Password is required</span>
         </div>
