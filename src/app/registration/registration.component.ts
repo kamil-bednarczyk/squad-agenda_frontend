@@ -1,6 +1,7 @@
 import {Component, Injectable, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {User} from './user.model';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Component({
   selector: 'app-registration',
@@ -10,28 +11,27 @@ import {User} from './user.model';
 @Injectable()
 export class RegistrationComponent implements OnInit {
 
+  registration_link = 'http://localhost:8092/users';
   registrationForm: FormGroup;
   private newUser: User = new User();
   roles: string[];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http: HttpClient) {
     this.registrationForm = fb.group({
-      'username': [],
-      'password': [],
-      'email': [],
-      'role': []
+      'username': [null, Validators.required],
+      'password': [null, Validators.required],
+      'email': [null, Validators.required],
+      'role': [null, Validators.required]
     });
   }
 
   ngOnInit() {
     this.roles = ['USER', 'DEVELOPER'];
-    this.registrationForm.valueChanges.subscribe( form => console.log(form));
   }
 
-  onSubmit(form: FormGroup) {
-    console.log(form.value);
-   // console.log(form)
-    //this.newUser.username = form.controls['username'].value;
-   // console.log(this.newUser.username);
+  onSubmit(form) {
+    this.newUser = <User>form;
+    this.http.post(this.registration_link, JSON.stringify(this.newUser),
+      {headers: new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'})}).subscribe(message => console.log(message));
   }
 }
