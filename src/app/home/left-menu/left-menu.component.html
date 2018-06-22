@@ -1,14 +1,14 @@
-<div class="menu">
-  <div class="form-group">
-    <div class="col-md-12 right-divider">
+<div class="menu right-divider">
+  <div class="form-group ">
+    <div class="col-md-12 ">
       <ul class="nav">
         <li>
-          <button class="btn btn-block" [routerLink]="[{outlets: {'left-menu-content': ['new-team']}}]">Create new
-            team
-          </button>
+          <button class="btn btn-block" [routerLink]="[{outlets: {'left-menu-content': ['profile']}}]">My Profile</button>
         </li>
         <li>
-          <button class="btn btn-block" href="#">Section</button>
+          <button class="btn btn-block" [routerLink]="[{outlets: {'left-menu-content': ['new-team']}}]">
+            Create new team
+          </button>
         </li>
         <li>
           <button class="btn btn-block" href="#">Section</button>

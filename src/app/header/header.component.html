@@ -1,11 +1,11 @@
 <div id="navbar">
   <a  routerLink="/home" routerLinkActive="active">Home</a>
-  <a routerLink="/register" routerLinkActive="active">Registration</a>
   <div *ngIf="isLoggedIn();else logoutbutton">
     <a (click)="logout()">Log out</a>
   </div>
   <ng-template #logoutbutton>
     <a routerLink="/login" routerLinkActive="active">Log in</a>
+    <a routerLink="/register" routerLinkActive="active">Registration</a>
   </ng-template>
 
 </div>

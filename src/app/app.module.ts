@@ -18,9 +18,12 @@ import {ProfileComponent} from './home/profile/profile.component';
 const appRoutes: Routes = [
   {path: 'register', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'home', component: HomeComponent, children: [
-      {path: 'new-team', component: TeamCreationComponent, outlet: 'left-menu-content'}
-    ]},
+  {
+    path: 'home', component: HomeComponent, children: [
+      {path: 'new-team', component: TeamCreationComponent, outlet: 'left-menu-content'},
+      {path: 'profile', component: ProfileComponent, outlet: 'left-menu-content'}
+    ]
+  },
 ];
 
 @NgModule({

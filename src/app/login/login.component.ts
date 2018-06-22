@@ -23,7 +23,8 @@ export class LoginComponent implements OnInit {
     this.authService.logIn(this.loginData.username, this.loginData.password).subscribe(
       JWT => {
         this.sessionService.setJWT(JWT);
-        this.router.navigate(['/']);
+        this.sessionService.setUsername(this.loginData.username);
+        this.router.navigate(['/home']);
       }
     );
   }

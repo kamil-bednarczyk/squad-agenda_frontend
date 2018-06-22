@@ -23,3 +23,7 @@ li button:hover{
   border-color: #f44141;
   background-color: #f44141;
 }
+
+.menu{
+  min-height:100vh;
+}
