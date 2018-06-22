@@ -5,3 +5,21 @@
 .menu{
   margin-left: 20px;
 }
+
+li{
+  margin-top: 5px;
+}
+
+li button{
+  border-radius: 0px;
+  color: #f44141;
+  border-color: #f44141;
+  background-color: #f2f2f2;
+}
+
+li button:hover{
+  border-radius: 0px;
+  color: #f2f2f2;
+  border-color: #f44141;
+  background-color: #f44141;
+}
