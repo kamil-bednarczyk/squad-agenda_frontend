@@ -4,11 +4,12 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http';
-import {Router, RouterModule, Routes} from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import {AppService} from './service/app.servcie';
+import {HttpClientModule} from '@angular/common/http';
+import {RouterModule, Routes} from '@angular/router';
+import {LoginComponent} from './login/login.component';
+import {AuthService} from './service/auth.service';
 import {HeaderComponent} from './header/header.component';
+import {SessionService} from './service/session.service';
 
 const appRoutes: Routes = [
   {path: 'register', component: RegistrationComponent},
@@ -29,7 +30,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [AppService],
+  providers: [AuthService, SessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

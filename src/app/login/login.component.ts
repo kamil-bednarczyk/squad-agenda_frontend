@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {AppService} from '../service/app.servcie';
+import {AuthService} from '../service/auth.service';
+import {SessionService} from '../service/session.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,14 +11,26 @@ import {AppService} from '../service/app.servcie';
 export class LoginComponent implements OnInit {
   public loginData = {username: '', password: ''};
 
-  constructor(private service: AppService) {
+  constructor(private authService: AuthService,
+              private sessionService: SessionService,
+              private router: Router) {
   }
 
   ngOnInit() {
   }
 
   login() {
-    this.service.logIn(this.loginData.username, this.loginData.password);
+    this.authService.logIn(this.loginData.username, this.loginData.password).subscribe(
+      JWT => {
+        this.sessionService.setJWT(JWT);
+        this.router.navigate(['/']);
+      }
+    );
   }
+
+  logout() {
+    this.authService.logout();
+  }
+
 
 }

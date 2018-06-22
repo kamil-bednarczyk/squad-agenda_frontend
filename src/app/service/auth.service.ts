@@ -1,10 +1,13 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
+import {SessionService} from './session.service';
 
 @Injectable()
-export class AppService {
-  constructor(private router: Router, private http: HttpClient) {
+export class AuthService {
+  constructor(private router: Router,
+              private http: HttpClient,
+              private sessionService: SessionService) {
   }
 
   logIn(username, password: string) {
@@ -21,6 +24,14 @@ export class AppService {
     body.append('password', password);
     body.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    this.http.post('http://localhost:8092/oauth/token', body, httpOptions).subscribe(res => console.log(res));
+    return this.http.post('http://localhost:8092/oauth/token', body, httpOptions);
+  }
+
+  logout() {
+    this.sessionService.clear();
+  }
+
+  isLoggedIn() {
+    return this.sessionService.getAccessToken() != null;
   }
 }
