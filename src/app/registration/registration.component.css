@@ -2,6 +2,37 @@
   margin-top: 20px;
 }
 
-input.ng-invalid.ng-touched{
+input.ng-invalid.ng-touched {
   border: 1px solid red;
 }
+
+input {
+  border: 1px solid #f44141;
+  border-radius: 0px;
+}
+
+select {
+  border: 1px solid #f44141;
+}
+option {
+  border: 1px solid #f44141;
+}
+
+#register-button {
+  margin-top: 25px;
+  border-radius: 0px;
+}
+
+#register-button button {
+  color: #f2f2f2;
+  background-color: #f44141;
+  border: 1px solid transparent;
+}
+
+#register-button button:disabled, #register-button button[disabled] {
+  color: #f44141;
+  background-color: #f2f2f2;
+  border: 1px solid #f44141;
+  border-radius: 0px;
+}
+

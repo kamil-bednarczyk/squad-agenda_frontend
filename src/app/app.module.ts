@@ -10,10 +10,17 @@ import {LoginComponent} from './login/login.component';
 import {AuthService} from './service/auth.service';
 import {HeaderComponent} from './header/header.component';
 import {SessionService} from './service/session.service';
+import {LeftMenuComponent} from './home/left-menu/left-menu.component';
+import {HomeComponent} from './home/home.component';
+import {TeamCreationComponent} from './home/team-creation/team-creation.component';
+import {ProfileComponent} from './home/profile/profile.component';
 
 const appRoutes: Routes = [
   {path: 'register', component: RegistrationComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'home', component: HomeComponent, children: [
+      {path: 'new-team', component: TeamCreationComponent, outlet: 'left-menu-content'}
+    ]},
 ];
 
 @NgModule({
@@ -21,7 +28,11 @@ const appRoutes: Routes = [
     AppComponent,
     HeaderComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    LeftMenuComponent,
+    HomeComponent,
+    TeamCreationComponent,
+    ProfileComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

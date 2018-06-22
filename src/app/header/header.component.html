@@ -1,5 +1,5 @@
 <div id="navbar">
-  <a href="#home">Home</a>
+  <a  routerLink="/home" routerLinkActive="active">Home</a>
   <a routerLink="/register" routerLinkActive="active">Registration</a>
   <div *ngIf="isLoggedIn();else logoutbutton">
     <a (click)="logout()">Log out</a>

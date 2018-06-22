@@ -15,6 +15,7 @@ export class RegistrationComponent implements OnInit {
   registrationForm: FormGroup;
   private newUser: User = new User();
   roles: string[];
+  defaultRole: string;
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.registrationForm = fb.group({
@@ -26,7 +27,9 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.roles = ['USER', 'DEVELOPER'];
+    this.roles = ['DEVELOPER'];
+    this.defaultRole = this.roles[0];
+    this.registrationForm.controls['role'].setValue(this.defaultRole);
   }
 
   onSubmit(form) {
