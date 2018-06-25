@@ -1,11 +1,27 @@
-<div id="navbar">
-  <a  routerLink="/home" routerLinkActive="active">Home</a>
-  <div *ngIf="isLoggedIn();else logoutbutton">
-    <a (click)="logout()">Log out</a>
-  </div>
-  <ng-template #logoutbutton>
-    <a routerLink="/login" routerLinkActive="active">Log in</a>
-    <a routerLink="/register" routerLinkActive="active">Registration</a>
-  </ng-template>
+<div class="header">
+  <nav class="navbar-fixed-top">
 
+    <div id="navbar">
+      <div class="col-sm-2"></div>
+
+      <a routerLink="/home" routerLinkActive="active"><span class="glyphicon glyphicon-home"></span>  Home</a>
+      <div class="col-sm-4">
+        <div *ngIf="isLoggedIn();else logoutbutton">
+          <a routerLink="/my-profile" routerLinkActive="active"><span class="glyphicon glyphicon-user"></span> My profile</a>
+          <a routerLink="/events" routerLinkActive="active"><span class="glyphicon glyphicon-star-empty"></span> My events</a>
+          <a (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Log out</a>
+        </div>
+      </div>
+
+      <div class="col-sm-2">
+        <ng-template #logoutbutton>
+          <a routerLink="/register" routerLinkActive="active"><span class="glyphicon glyphicon-pencil"></span> Registration</a>
+          <a routerLink="/login" routerLinkActive="active"><span class="glyphicon glyphicon-log-in"></span> Log in</a>
+        </ng-template>
+      </div>
+
+      <div class="col-sm-2"></div>
+    </div>
+
+  </nav>
 </div>
