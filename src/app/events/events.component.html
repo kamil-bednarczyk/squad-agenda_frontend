@@ -1,17 +1,25 @@
-<div class="col-sm-2"></div>
-<div class="col-sm-8 events-content">
+<div class="col-sm-1"></div>
+<div class="col-sm-10 events-content">
   <form [formGroup]="newEventsForm" (ngSubmit)="onSubmit()">
-    <div *ngFor="let event of events" class="row">
-      <h3>{{event.date}}</h3>
-      <div *ngFor="let type of eventTypes">
-        <div class="col-sm-3  event-label">
-          <input type="radio" name="{{event.id}}" id="{{event.id}}{{type}}" (change)="onChange({'id': event.id , 'type': type})">
-          <label for="{{event.id}}{{type}}">{{type}}</label>
+    <div>
+      <div *ngFor="let event of events">
+        <div class="row">
+          <div class="col-sm-2"><label class="date-name-label">{{event.date}}</label></div>
+          <div *ngFor="let type of eventTypes">
+            <div class="event-label col-sm-3">
+              <input type="radio" name="{{event.id}}" id="{{event.id}}{{type}}" (change)="onChange({'id': event.id , 'type': type})">
+              <label for="{{event.id}}{{type}}">{{type}}</label>
+            </div>
+          </div>
+          <div class="col-sm-1"></div>
         </div>
       </div>
     </div>
-    <button class="btn btn-block" type="submit">Submit</button>
+    <div class="row">
+      <button class="btn btn-block" type="submit">Submit</button>
+    </div>
+
   </form>
 </div>
 
-<div class="col-sm-2"></div>
+<div class="col-sm-1"></div>
