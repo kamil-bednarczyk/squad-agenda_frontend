@@ -1,0 +1,30 @@
+
+
+h1 {
+  font-size: 5vh;
+  margin-bottom: 30px;
+}
+
+
+#title {
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 7vh;
+  color: #f44141;
+  border: 10px solid #f44141;
+  padding: 10px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.picture-area{
+  position: relative;
+  text-align: center;
+}
+
+.centered {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+

@@ -12,7 +12,6 @@ import {HeaderComponent} from './header/header.component';
 import {SessionService} from './service/session.service';
 import {LeftMenuComponent} from './home/left-menu/left-menu.component';
 import {HomeComponent} from './home/home.component';
-import {TeamCreationComponent} from './home/team-creation/team-creation.component';
 import {MyProfileComponent} from './my-profile/my-profile.component';
 import {EventsComponent} from './events/events.component';
 import {OptionListComponent} from './events/option-list/option-list.component';
@@ -20,7 +19,7 @@ import {TokenInterceptor} from './service/interceptor/token.interceptor';
 import {EventService} from './service/event.service';
 import {TeamComponent} from './team/team.component';
 import {TeamService} from './service/team.service';
-import { TeamElementComponent } from './team/team-element/team-element.component';
+import {TeamElementComponent} from './team/team-element/team-element.component';
 
 const appRoutes: Routes = [
   {path: 'register', component: RegistrationComponent},
@@ -29,9 +28,7 @@ const appRoutes: Routes = [
   {path: 'events', component: EventsComponent},
   {path: 'teams', component: TeamComponent},
   {
-    path: 'home', component: HomeComponent, children: [
-      {path: 'new-team', component: TeamCreationComponent, outlet: 'left-menu-content'}
-    ]
+    path: 'home', component: HomeComponent, children: []
   },
 ];
 
@@ -43,7 +40,6 @@ const appRoutes: Routes = [
     LoginComponent,
     LeftMenuComponent,
     HomeComponent,
-    TeamCreationComponent,
     MyProfileComponent,
     EventsComponent,
     OptionListComponent,

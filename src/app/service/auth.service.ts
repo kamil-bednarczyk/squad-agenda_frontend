@@ -5,6 +5,9 @@ import {SessionService} from './session.service';
 
 @Injectable()
 export class AuthService {
+
+  public static loginUrl = '/oauth/token';
+
   constructor(private router: Router,
               private http: HttpClient,
               private sessionService: SessionService) {
@@ -24,7 +27,7 @@ export class AuthService {
     body.append('password', password);
     body.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    return this.http.post('http://localhost:8092/oauth/token', body, httpOptions);
+    return this.http.post('http://localhost:8092' + AuthService.loginUrl, body, httpOptions);
   }
 
   logout() {
