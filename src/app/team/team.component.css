@@ -1,0 +1,12 @@
+
+.container-top{
+  margin-top: 40px;
+}
+
+textarea {
+  resize: none;
+}
+
+#search-input{
+margin-top: 20px;
+}

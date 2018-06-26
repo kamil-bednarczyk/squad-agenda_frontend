@@ -1,0 +1,16 @@
+
+
+.profile-section {
+
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f44141;
+}
+
+
+.profile-section label {
+  font-size: 30px;
+  min-height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+

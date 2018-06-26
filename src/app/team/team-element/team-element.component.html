@@ -1,0 +1,12 @@
+<div class="team-element">
+  <div class="row">
+    <div class="col-sm-2"><h2><span class="label label-default">{{team.name}}</span></h2></div>
+    <div class="col-sm-8"><h4 >{{team.description}}</h4></div>
+    <div class="col-sm-2"><button class="join-team-button btn btn-block" type="submit">Join</button></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h2><span *ngFor="let member of team.members" class="label label-info">{{member.name}}</span></h2>
+    </div>
+  </div>
+</div>

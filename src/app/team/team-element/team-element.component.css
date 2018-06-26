@@ -1,0 +1,27 @@
+.team-element{
+  border-bottom: 2px solid #f44141;
+}
+
+h2{
+  margin-top: 10px;
+}
+
+h4{
+  vertical-align: middle;
+  padding-left: 10px;
+
+}
+
+.join-team-button{
+  color: #f44141;
+  background-color: #f2f2f2;
+  border: 1px solid #f44141;
+  margin: 5px;
+  border-radius: 0px;
+
+}
+
+.join-team-button:hover{
+  color: #f2f2f2;
+  background-color: #f44141;
+}

@@ -57,7 +57,6 @@ export class EventsComponent implements OnInit {
     for (let i = 0; i <= 7; i++) {
       const tomorrow = new Date();
       tomorrow.setDate(this.today.getDate() + i);
-      //const dateAsString = this.pipe.transform(tomorrow, 'EE, MM LLLL');
       this.events.push(new EventModel(i + '', null, tomorrow));
     }
   }

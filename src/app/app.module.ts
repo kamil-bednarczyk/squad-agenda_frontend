@@ -13,24 +13,24 @@ import {SessionService} from './service/session.service';
 import {LeftMenuComponent} from './home/left-menu/left-menu.component';
 import {HomeComponent} from './home/home.component';
 import {TeamCreationComponent} from './home/team-creation/team-creation.component';
-import {ProfileComponent} from './home/profile/profile.component';
 import {MyProfileComponent} from './my-profile/my-profile.component';
 import {EventsComponent} from './events/events.component';
-import {CalendarModule} from 'angular-calendar';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { OptionListComponent } from './events/option-list/option-list.component';
+import {OptionListComponent} from './events/option-list/option-list.component';
 import {TokenInterceptor} from './service/interceptor/token.interceptor';
 import {EventService} from './service/event.service';
+import {TeamComponent} from './team/team.component';
+import {TeamService} from './service/team.service';
+import { TeamElementComponent } from './team/team-element/team-element.component';
 
 const appRoutes: Routes = [
   {path: 'register', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
   {path: 'my-profile', component: MyProfileComponent},
   {path: 'events', component: EventsComponent},
+  {path: 'teams', component: TeamComponent},
   {
     path: 'home', component: HomeComponent, children: [
-      {path: 'new-team', component: TeamCreationComponent, outlet: 'left-menu-content'},
-      {path: 'profile', component: ProfileComponent, outlet: 'left-menu-content'}
+      {path: 'new-team', component: TeamCreationComponent, outlet: 'left-menu-content'}
     ]
   },
 ];
@@ -44,10 +44,11 @@ const appRoutes: Routes = [
     LeftMenuComponent,
     HomeComponent,
     TeamCreationComponent,
-    ProfileComponent,
     MyProfileComponent,
     EventsComponent,
-    OptionListComponent
+    OptionListComponent,
+    TeamComponent,
+    TeamElementComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -56,7 +57,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService, SessionService, EventService,
+  providers: [AuthService, SessionService, EventService, TeamService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

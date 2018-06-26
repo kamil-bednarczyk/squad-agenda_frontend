@@ -7,8 +7,9 @@
       <a routerLink="/home" routerLinkActive="active"><span class="glyphicon glyphicon-home"></span>  Home</a>
       <div class="col-sm-4">
         <div *ngIf="isLoggedIn();else logoutbutton">
-          <a routerLink="/my-profile" routerLinkActive="active"><span class="glyphicon glyphicon-user"></span> My profile</a>
-          <a routerLink="/events" routerLinkActive="active"><span class="glyphicon glyphicon-star-empty"></span> My events</a>
+          <a routerLink="/my-profile" routerLinkActive="active"><span class="glyphicon glyphicon-user"></span> Profile</a>
+          <a routerLink="/events" routerLinkActive="active"><span class="glyphicon glyphicon-star-empty"></span> Events</a>
+          <a routerLink="/teams" routerLinkActive="active"><span class="glyphicon glyphicon-flag"></span> Teams</a>
           <a (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Log out</a>
         </div>
       </div>

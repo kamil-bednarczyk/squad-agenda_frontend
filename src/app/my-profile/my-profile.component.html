@@ -1,3 +1,19 @@
-<p>
-  my-profile works!
-</p>
+<div class="container">
+  <div class="row profile-section">
+    <h1>My profile</h1></div>
+  <div class=" row ">
+    <div class="row image-frame">
+      <div class="col-sm-4"><img [src]="placeholderImagePath" height="200" width="200">
+        <h2>{{user.username}}</h2>
+        <h4>{{user.email}}</h4>
+      </div>
+      <div class="col-sm-8">
+        <h3>About me</h3>
+      </div>
+    </div>
+    <div class="row profile-section">
+      <div class="col-sm-12"><h2>Teams</h2></div>
+    </div>
+
+  </div>
+</div>
