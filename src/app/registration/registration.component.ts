@@ -11,7 +11,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 @Injectable()
 export class RegistrationComponent implements OnInit {
 
-  registration_link = 'http://localhost:8092/users';
+  registration_link = 'http://localhost:8092/users/registration';
   registrationForm: FormGroup;
   private newUser: User = new User();
   roles: string[];

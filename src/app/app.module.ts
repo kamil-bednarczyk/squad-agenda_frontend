@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './login/login.component';
 import {AuthService} from './service/auth.service';
@@ -19,6 +19,8 @@ import {EventsComponent} from './events/events.component';
 import {CalendarModule} from 'angular-calendar';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { OptionListComponent } from './events/option-list/option-list.component';
+import {TokenInterceptor} from './service/interceptor/token.interceptor';
+import {EventService} from './service/event.service';
 
 const appRoutes: Routes = [
   {path: 'register', component: RegistrationComponent},
@@ -54,7 +56,12 @@ const appRoutes: Routes = [
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService, SessionService],
+  providers: [AuthService, SessionService, EventService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule {

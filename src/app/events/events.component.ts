@@ -5,6 +5,7 @@ import {FormArray, FormGroup} from '@angular/forms';
 import {NewEventDtoModel} from '../model/new-event-dto.model';
 import {SessionService} from '../service/session.service';
 import {HttpClient} from '@angular/common/http';
+import {EventService} from '../service/event.service';
 
 @Component({
   selector: 'app-events',
@@ -17,22 +18,23 @@ export class EventsComponent implements OnInit {
   newEventsForm: FormGroup;
   today: Date;
   events: EventModel[] = [];
-  eventTypes: string[] = ['VACATION', 'SICK_LEAVE', 'WORK_FROM_HOME'];
+  eventTypes: string[] = ['NO_EVENT', 'VACATION', 'SICK_LEAVE', 'HOME_OFFICE', 'OTHER'];
   pipe = new DatePipe('en-US');
 
-  constructor(private sessionService: SessionService, private httpClient: HttpClient) {
+  constructor(private sessionService: SessionService,
+              private httpClient: HttpClient,
+              private eventService: EventService) {
   }
 
   onSubmit() {
     const createdEvents = [];
     for (const event of this.events) {
       if (event.type !== null) {
-        createdEvents.push(new NewEventDtoModel(this.sessionService.getUsername(), event.type, event.date));
+        createdEvents.push(new NewEventDtoModel(this.sessionService.getUsername(), event.type,
+          this.pipe.transform(event.date, 'dd-MM-yyyy')));
       }
     }
-    console.log(createdEvents);
-    this.httpClient.post('', createdEvents);
-
+    this.eventService.sendNewEvents(createdEvents).subscribe(response => console.log(response));
   }
 
   ngOnInit() {
@@ -55,8 +57,8 @@ export class EventsComponent implements OnInit {
     for (let i = 0; i <= 7; i++) {
       const tomorrow = new Date();
       tomorrow.setDate(this.today.getDate() + i);
-      const dateAsString = this.pipe.transform(tomorrow, 'EE, MM LLLL');
-      this.events.push(new EventModel(i + '', null, dateAsString));
+      //const dateAsString = this.pipe.transform(tomorrow, 'EE, MM LLLL');
+      this.events.push(new EventModel(i + '', null, tomorrow));
     }
   }
 }
