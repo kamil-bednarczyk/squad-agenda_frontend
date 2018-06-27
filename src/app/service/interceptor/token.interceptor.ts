@@ -14,7 +14,6 @@ export class TokenInterceptor implements HttpInterceptor {
     if (this.authService.isLoggedIn()) {
 
       const token = this.sessionService.getAccessToken();
-      console.log(token);
       let changedRequest = request;
       // HttpHeader object immutable - copy values
       const headerSettings: { [name: string]: string | string[]; } = {};

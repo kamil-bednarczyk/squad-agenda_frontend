@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-sm-2"><h2><span class="label label-default">{{team.name}}</span></h2></div>
     <div class="col-sm-8"><h4 >{{team.description}}</h4></div>
-    <div class="col-sm-2"><button class="join-team-button btn btn-block" type="submit">Join</button></div>
+    <div class="col-sm-2"><button class="join-team-button btn btn-block" type="submit">Join</button>
+      <button class="join-team-button btn btn-block" type="submit" routerLink="/boards/{{team.id}}" routerLinkActive="active">See</button>
+    </div>
   </div>
   <div class="row">
     <div class="col-sm-12">

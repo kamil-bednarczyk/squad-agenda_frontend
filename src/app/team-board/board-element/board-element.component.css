@@ -1,0 +1,30 @@
+label{
+  text-align: center;
+  background-color: gray;
+  margin: 1px;
+}
+
+img{
+  width: 70%;
+  height: 70%;
+}
+
+.NO_EVENT {
+  background-color: grey
+}
+
+.VACATION {
+  background-color: gold
+}
+
+.SICK_LEAVE {
+  background-color: darkolivegreen
+}
+
+.HOME_OFFICE {
+  background-color: cornflowerblue
+}
+
+.OTHER {
+  background-color: #333333
+}

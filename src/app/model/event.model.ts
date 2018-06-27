@@ -1,11 +1,11 @@
 export class EventModel {
   id: string;
   type: string;
-  date: Date;
+  when: Date;
 
-  constructor(id: string, type: string, date: Date) {
+  constructor(id: string, type: string, when: Date) {
     this.id = id;
     this.type = type;
-    this.date = date;
+    this.when = when;
   }
 }

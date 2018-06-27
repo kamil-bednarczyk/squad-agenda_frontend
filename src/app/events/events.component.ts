@@ -31,7 +31,7 @@ export class EventsComponent implements OnInit {
     for (const event of this.events) {
       if (event.type !== null) {
         createdEvents.push(new NewEventDtoModel(this.sessionService.getUsername(), event.type,
-          this.pipe.transform(event.date, 'dd-MM-yyyy')));
+          this.pipe.transform(event.when, 'dd-MM-yyyy')));
       }
     }
     this.eventService.sendNewEvents(createdEvents).subscribe(response => console.log(response));

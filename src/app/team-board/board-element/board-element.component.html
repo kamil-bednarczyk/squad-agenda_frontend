@@ -1,0 +1,6 @@
+<div class="row" style="display: table">
+
+    <label [style.width]="width" [style.height]="height">{{member.name}}<img [src]="placeholderImagePath" ></label>
+
+  <label [ngClass]="event.type" [style.width]="width" [style.height]="height" *ngFor="let event of events">{{event.type}}</label>
+</div>

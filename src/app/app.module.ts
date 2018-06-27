@@ -20,12 +20,16 @@ import {EventService} from './service/event.service';
 import {TeamComponent} from './team/team.component';
 import {TeamService} from './service/team.service';
 import {TeamElementComponent} from './team/team-element/team-element.component';
+import { TeamBoardComponent } from './team-board/team-board.component';
+import { BoardElementComponent } from './team-board/board-element/board-element.component';
 
 const appRoutes: Routes = [
   {path: 'register', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
   {path: 'my-profile', component: MyProfileComponent},
   {path: 'events', component: EventsComponent},
+  {path: 'boards/:id', component: TeamBoardComponent},
+  {path: '', component: HomeComponent},
   {path: 'teams', component: TeamComponent},
   {
     path: 'home', component: HomeComponent, children: []
@@ -44,7 +48,9 @@ const appRoutes: Routes = [
     EventsComponent,
     OptionListComponent,
     TeamComponent,
-    TeamElementComponent
+    TeamElementComponent,
+    TeamBoardComponent,
+    BoardElementComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
