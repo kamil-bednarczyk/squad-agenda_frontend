@@ -6,6 +6,7 @@ import {NewEventDtoModel} from '../model/new-event-dto.model';
 import {SessionService} from '../service/session.service';
 import {HttpClient} from '@angular/common/http';
 import {EventService} from '../service/event.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-events',
@@ -23,7 +24,8 @@ export class EventsComponent implements OnInit {
 
   constructor(private sessionService: SessionService,
               private httpClient: HttpClient,
-              private eventService: EventService) {
+              private eventService: EventService,
+              private router: Router) {
   }
 
   onSubmit() {
@@ -34,11 +36,14 @@ export class EventsComponent implements OnInit {
           this.pipe.transform(event.when, 'dd-MM-yyyy')));
       }
     }
-    this.eventService.sendNewEvents(createdEvents).subscribe(response => console.log(response));
+    this.eventService.sendNewEvents(createdEvents).subscribe(response => {
+      this.router.navigate(['/home']);
+    });
   }
 
   ngOnInit() {
     this.initWeekDays();
+
     this.newEventsForm = new FormGroup({
       events: new FormArray([])
     });
@@ -54,10 +59,10 @@ export class EventsComponent implements OnInit {
 
   private initWeekDays() {
     this.today = new Date();
-    for (let i = 0; i <= 7; i++) {
-      const tomorrow = new Date();
-      tomorrow.setDate(this.today.getDate() + i);
-      this.events.push(new EventModel(i + '', null, tomorrow));
-    }
+    const tomorrow = new Date();
+    tomorrow.setDate(this.today.getDate() + 7);
+    this.eventService.getEventsBeetwenDates(this.sessionService.getUsername(),
+      this.today, tomorrow)
+      .subscribe(events => this.events = <EventModel[]>events);
   }
 }
