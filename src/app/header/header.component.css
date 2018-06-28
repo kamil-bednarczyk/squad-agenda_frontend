@@ -42,3 +42,6 @@
 .navbar-right{
   margin-right: 100px;
 }
+#logoutbutton{
+ cursor: pointer  ;
+}

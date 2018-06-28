@@ -1,6 +1,9 @@
-<div class="row" style="display: table">
+<div class="row" >
+  <div class="img-container col-sm-1"  [style.height]="height"><img [src]="placeholderImagePath">
+    <p >{{member.name}}</p>
+  </div>
+  <div class="events col-sm-11" [style.height]="height" >
+    <label [ngClass]="event.type" [style.width]="width" *ngFor="let event of events">{{event.type}}<br>{{event.when}}</label>
+  </div>
 
-    <label [style.width]="width" [style.height]="height">{{member.name}}<img [src]="placeholderImagePath" ></label>
-
-  <label [ngClass]="event.type" [style.width]="width" [style.height]="height" *ngFor="let event of events">{{event.type}}</label>
 </div>

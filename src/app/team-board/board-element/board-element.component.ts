@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {MemberModel} from '../../model/member.model';
 import {EventService} from '../../service/event.service';
 import {EventModel} from '../../model/event.model';
+import {TeamBoardComponent} from '../team-board.component';
 
 @Component({
   selector: 'app-board-element',
@@ -12,7 +13,7 @@ export class BoardElementComponent implements OnInit {
 
   @Input() member: MemberModel;
   @Input() height;
-  @Input() width;
+  width;
   placeholderImagePath: string;
   events: EventModel[] = [];
 
@@ -20,10 +21,12 @@ export class BoardElementComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.width = (100 / TeamBoardComponent.NUMBER_OF_DAYS) + '%';
+
     this.placeholderImagePath = '/assets/placeholder.png';
     const today = new Date();
     const tomorrow = new Date();
-    tomorrow.setDate(today.getDate() + 7);
+    tomorrow.setDate(today.getDate() + TeamBoardComponent.NUMBER_OF_DAYS);
 
     this.eventService.getEventsBeetwenDates(this.member.name, today, tomorrow).subscribe(events => {
       this.events = <EventModel[]> events;

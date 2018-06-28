@@ -1,17 +1,27 @@
-label{
+label {
+  height: 100%;
   text-align: center;
-  background-color: gray;
-  margin: 1px;
+  border: 2px solid white;
 }
 
-img{
-  width: 70%;
-  height: 70%;
+div{
+padding: 0px;
 }
 
-.NO_EVENT {
+img {
+  vertical-align: top;
+  width: 100%;
+  height: 90%;
+  padding: 2px;
+}
+
+p{
+  text-align: center;
+}
+
+/*.NO_EVENT {
   background-color: grey
-}
+}*/
 
 .VACATION {
   background-color: gold
@@ -27,4 +37,8 @@ img{
 
 .OTHER {
   background-color: #333333
+}
+
+row{
+  margin: 0px;
 }

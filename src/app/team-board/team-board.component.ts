@@ -2,7 +2,6 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {TeamService} from '../service/team.service';
 import {ActivatedRoute} from '@angular/router';
 import {TeamModel} from '../model/team.model';
-import {EventService} from '../service/event.service';
 
 @Component({
   selector: 'app-team-board',
@@ -11,16 +10,24 @@ import {EventService} from '../service/event.service';
 })
 export class TeamBoardComponent implements OnInit, OnDestroy {
 
+  public static NUMBER_OF_DAYS = 5;
   team: TeamModel = new TeamModel();
   id: string;
   width: string;
   height: string;
+  days: Date[] = [];
 
   constructor(private teamService: TeamService,
               private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    this.width = (100 / TeamBoardComponent.NUMBER_OF_DAYS) + '%';
+    const start: Date = new Date();
+    const end = new Date();
+    end.setDate(start.getDate() + TeamBoardComponent.NUMBER_OF_DAYS);
+    this.setDaysForBoard(start, end);
+
     this.route.params.subscribe(params => {
       this.id = params['id'];
     });
@@ -28,14 +35,22 @@ export class TeamBoardComponent implements OnInit, OnDestroy {
     this.teamService.getTeam(this.id).subscribe(response => {
       this.team = <TeamModel>response;
     });
-    this.calculateWidthPerUser();
+  }
+
+  setDaysForBoard(start: Date, end: Date) {
+    const now = new Date();
+    now.setDate(start.getDate());
+    while (now < end) {
+      this.days.push(new Date(now.getTime()));
+      now.setDate(now.getDate() + 1);
+    }
   }
 
   ngOnDestroy(): void {
   }
 
   calculateWidthPerUser() {
-    this.width =  (100 / 7) + 'vw';
-    this.height =  (100 / (this.team.members.length + 1)) + 'vh';
+
+    this.height = (100 / (this.team.members.length + 1)) + 'vh';
   }
 }

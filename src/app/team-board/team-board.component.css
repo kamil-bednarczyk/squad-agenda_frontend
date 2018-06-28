@@ -1,4 +1,17 @@
-.days {
+
+
+label {
+  text-align: center;
+  font-size: 18px;
+}
+
+.teamboard{
   margin-top: 50px;
 }
 
+.days
+{
+  margin-top: 10px;
+  background-color: cornflowerblue;
+  color: white;
+}
