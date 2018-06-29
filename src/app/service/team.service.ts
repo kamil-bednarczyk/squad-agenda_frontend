@@ -1,5 +1,6 @@
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
+import {AddMemberModel} from '../model/add.member.model';
 
 @Injectable()
 export class TeamService {
@@ -13,5 +14,9 @@ export class TeamService {
 
   getTeam(id: string) {
     return this.httpClient.get('http://localhost:8094/teams/' + id);
+  }
+
+  updateTeamStatus(username: string, id: string, status: string) {
+    return this.httpClient.put('http://localhost:8094/members', new AddMemberModel(id, '', username, status));
   }
 }

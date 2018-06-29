@@ -1,14 +1,35 @@
 <div class="team-element">
   <div class="row">
-    <div class="col-sm-2"><h2><span class="label label-default">{{team.name}}</span></h2></div>
-    <div class="col-sm-8"><h4 >{{team.description}}</h4></div>
-    <div class="col-sm-2"><button class="join-team-button btn btn-block" type="submit">Join</button>
+    <div class="col-sm-2"><h2><span class="label team-name-label">{{team.name}}</span></h2></div>
+    <div class="col-sm-8"><h4>{{team.description}}</h4></div>
+    <div class="col-sm-2">
+      <div *ngIf="isUserInTeam(); else removeFromTeamButton">
+        <button class="join-team-button btn btn-block" (click)="openModal(team.id + 1)">Leave</button>
+      </div>
+      <ng-template #removeFromTeamButton>
+        <button class="join-team-button btn btn-block" (click)="openModal(team.id)">Join</button>
+      </ng-template>
       <button class="join-team-button btn btn-block" type="submit" routerLink="/boards/{{team.id}}" routerLinkActive="active">See</button>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-12">
-      <h2><span *ngFor="let member of team.members" class="label label-info">{{member.name}}</span></h2>
+      <h2><span *ngFor="let member of team.members" class="label label-info members-label">{{member.name}}</span></h2>
     </div>
   </div>
 </div>
+
+<app-modal id="{{team.id}}">
+  <h1>Joining Team: {{team.name}}</h1>
+  <div class="buttons">
+    <button class="custom-model-button" type="button" (click)="updateMembersStatus(team.id, 'ADD');">Send request</button>
+    <button class="custom-model-button" type="button" (click)="closeModal(team.id);">Cancel</button>
+  </div>
+</app-modal>
+<app-modal id="{{team.id + 1}}">
+  <h1>Leaving Team: {{team.name}}</h1>
+  <div class="buttons">
+    <button class="custom-model-button" type="button" (click)="updateMembersStatus(team.id, 'REMOVE');">Send request</button>
+    <button class="custom-model-button" type="button" (click)="closeModal(team.id+1);">Cancel</button>
+  </div>
+</app-modal>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserModel} from '../model/user.model';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {SessionService} from '../service/session.service';
+import {TeamService} from '../service/team.service';
 
 @Component({
   selector: 'app-my-profile',
@@ -13,7 +14,9 @@ export class MyProfileComponent implements OnInit {
   user: UserModel = new UserModel();
   placeholderImagePath: string;
 
-  constructor(private httpClient: HttpClient, private sessionService: SessionService) {
+  constructor(private httpClient: HttpClient,
+              private sessionService: SessionService,
+              private teamService: TeamService) {
   }
 
   ngOnInit() {

@@ -1,6 +1,4 @@
-.team-element{
-  border-bottom: 2px solid #f44141;
-}
+
 
 h2{
   margin-top: 10px;
@@ -24,4 +22,17 @@ h4{
 .join-team-button:hover{
   color: #f2f2f2;
   background-color: #f44141;
+}
+
+.members-label{
+  border-radius: 0;
+  margin: 1px;
+}
+
+.team-name-label{
+  color: white;
+  font-family: "Arial Black", Gadget, sans-serif;
+  border-radius: 0;
+  padding: 5px;
+  background-color: grey;
 }

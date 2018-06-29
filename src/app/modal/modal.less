@@ -1,0 +1,67 @@
+app-modal {
+
+  display: none;
+
+  .jw-modal {
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    overflow: auto;
+
+    .jw-modal-body {
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      top: 20%;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      background: #fff;
+      width: 50%;
+      height: 20%;
+
+      h1 {
+        text-align: center;
+      }
+      .buttons {
+        text-align: center;
+        .custom-model-button {
+
+          margin: 10px;
+          padding: 10px;
+          width: 40%;
+          border-radius: 0px;
+          color: #f44141;
+          background-color: #f2f2f2;
+          border: 1px solid #f44141;
+        }
+
+        .custom-model-button:hover {
+          color: #f2f2f2;
+          background-color: #f44141;
+          border: 1px solid transparent;
+        }
+      }
+    }
+  }
+
+  .jw-modal-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.75;
+
+    z-index: 900;
+  }
+}
+
+body.jw-modal-open {
+  overflow: hidden;
+}

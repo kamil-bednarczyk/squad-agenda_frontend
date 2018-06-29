@@ -20,14 +20,19 @@ import {EventService} from './service/event.service';
 import {TeamComponent} from './team/team.component';
 import {TeamService} from './service/team.service';
 import {TeamElementComponent} from './team/team-element/team-element.component';
-import { TeamBoardComponent } from './team-board/team-board.component';
-import { BoardElementComponent } from './team-board/board-element/board-element.component';
+import {TeamBoardComponent} from './team-board/team-board.component';
+import {BoardElementComponent} from './team-board/board-element/board-element.component';
+import {ModalComponent} from './modal/modal.component';
+import {ModalService} from './service/modal.service';
+import {DummyComponent} from './dummy/dummy.component';
+import {TeamfilterPipe} from './pipe/teamfilter.pipe';
 
 const appRoutes: Routes = [
   {path: 'register', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
   {path: 'my-profile', component: MyProfileComponent},
   {path: 'events', component: EventsComponent},
+  {path: 'dummy', component: DummyComponent},
   {path: 'boards/:id', component: TeamBoardComponent},
   {path: '', component: HomeComponent},
   {path: 'teams', component: TeamComponent},
@@ -50,7 +55,10 @@ const appRoutes: Routes = [
     TeamComponent,
     TeamElementComponent,
     TeamBoardComponent,
-    BoardElementComponent
+    BoardElementComponent,
+    ModalComponent,
+    DummyComponent,
+    TeamfilterPipe
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -59,7 +67,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService, SessionService, EventService, TeamService,
+  providers: [AuthService, SessionService, EventService, TeamService, ModalService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
