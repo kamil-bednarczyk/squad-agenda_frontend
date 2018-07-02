@@ -17,7 +17,7 @@ import {EventsComponent} from './events/events.component';
 import {OptionListComponent} from './events/option-list/option-list.component';
 import {TokenInterceptor} from './service/interceptor/token.interceptor';
 import {EventService} from './service/event.service';
-import {TeamComponent} from './team/team.component';
+import {TeamsListComponent} from './team/teams-list.component';
 import {TeamService} from './service/team.service';
 import {TeamElementComponent} from './team/team-element/team-element.component';
 import {TeamBoardComponent} from './team-board/team-board.component';
@@ -26,6 +26,9 @@ import {ModalComponent} from './modal/modal.component';
 import {ModalService} from './service/modal.service';
 import {DummyComponent} from './dummy/dummy.component';
 import {TeamfilterPipe} from './pipe/teamfilter.pipe';
+import {AlertComponent} from './alert/alert.component';
+import {AlertService} from './service/alert.service';
+import { CreateTeamComponent } from './team/create-team/create-team.component';
 
 const appRoutes: Routes = [
   {path: 'register', component: RegistrationComponent},
@@ -35,7 +38,7 @@ const appRoutes: Routes = [
   {path: 'dummy', component: DummyComponent},
   {path: 'boards/:id', component: TeamBoardComponent},
   {path: '', component: HomeComponent},
-  {path: 'teams', component: TeamComponent},
+  {path: 'teams', component: TeamsListComponent},
   {
     path: 'home', component: HomeComponent, children: []
   },
@@ -52,13 +55,15 @@ const appRoutes: Routes = [
     MyProfileComponent,
     EventsComponent,
     OptionListComponent,
-    TeamComponent,
+    TeamsListComponent,
     TeamElementComponent,
     TeamBoardComponent,
     BoardElementComponent,
     ModalComponent,
     DummyComponent,
-    TeamfilterPipe
+    TeamfilterPipe,
+    AlertComponent,
+    CreateTeamComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -67,7 +72,12 @@ const appRoutes: Routes = [
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService, SessionService, EventService, TeamService, ModalService,
+  providers: [AuthService,
+    SessionService,
+    EventService,
+    TeamService,
+    ModalService,
+    AlertService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

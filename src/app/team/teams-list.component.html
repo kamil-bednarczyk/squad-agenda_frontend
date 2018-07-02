@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row container-top">
+    <div class="col-sm-7">
+      <div class="row">
+        <div class="col-sm-6"><label><h2>Available Teams:</h2></label></div>
+        <div class="col-sm-6"><input type="text" [(ngModel)]="searchText" id="search-input" placeholder="Search Team..."></div>
+      </div>
+      <div *ngFor="let team of teams | teamfilter: searchText" class="row single-team-area">
+        <app-team-element [team]="team"></app-team-element>
+      </div>
+    </div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-4">
+      <app-create-team></app-create-team>
+
+    </div>
+  </div>
+</div>

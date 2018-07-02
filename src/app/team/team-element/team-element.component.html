@@ -14,7 +14,8 @@
   </div>
   <div class="row">
     <div class="col-sm-12">
-      <h2><span *ngFor="let member of team.members" class="label label-info members-label">{{member.name}}</span></h2>
+      <h2><span *ngFor="let member of team.members"  class="label label-info members-label">{{member.name}}</span></h2>
+      <label *ngIf="team.members.length == 0" class="empty-team-label"> There is no members in this team</label>
     </div>
   </div>
 </div>

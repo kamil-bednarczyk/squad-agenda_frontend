@@ -4,6 +4,7 @@ import {ModalService} from '../../service/modal.service';
 import {TeamService} from '../../service/team.service';
 import {SessionService} from '../../service/session.service';
 import {Router} from '@angular/router';
+import {AlertService} from '../../service/alert.service';
 
 @Component({
   selector: 'app-team-element',
@@ -17,6 +18,7 @@ export class TeamElementComponent implements OnInit {
   constructor(private modalService: ModalService,
               private teamService: TeamService,
               private sessionService: SessionService,
+              private alertService: AlertService,
               private router: Router) {
   }
 
@@ -35,10 +37,16 @@ export class TeamElementComponent implements OnInit {
     this.modalService.close(id);
     this.teamService.updateTeamStatus(this.sessionService.getUsername(), this.team.id, action)
       .subscribe(req => {
+        if (action === 'ADD') {
+          this.alertService.success('You have joined ' + this.team.name + ' team');
+        } else {
+          this.alertService.success('You have leaved ' + this.team.name + ' team');
+        }
         this.router.navigateByUrl('/dummy', {skipLocationChange: true}).then(() =>
           this.router.navigate(['/teams']));
       });
   }
+
   isUserInTeam() {
     return this.team.members.filter(x => x.name === this.sessionService.getUsername())[0];
   }

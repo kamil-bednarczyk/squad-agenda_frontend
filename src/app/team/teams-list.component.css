@@ -3,9 +3,6 @@
   margin-top: 40px;
 }
 
-textarea {
-  resize: none;
-}
 
 #search-input {
   margin-top: 20px;
@@ -17,7 +14,7 @@ textarea {
   min-height: 20vh;
   margin: 5px;
   background-color: lightgray;
-  padding: 20px;
+  padding: 20px 20px 5px;
 }
 
 h2 {

@@ -1,0 +1,24 @@
+<h2>Create New Team:</h2>
+<form [formGroup]="teamForm" (ngSubmit)="onSubmit(teamForm.value)">
+  <div class="form-group">
+
+    <input placeholder="Name"
+           id="name"
+           class="form-control"
+           formControlName="name"
+           type="text">
+  </div>
+  <div class="form-group">
+
+          <textarea placeholder="Description"
+                    id="description"
+                    class="form-control"
+                    formControlName="description"
+                    rows="4"
+                    type="text"></textarea>
+  </div>
+  <div>
+    <button type="submit" class="btn btn-block" [disabled]="!teamForm.valid">Submit</button>
+  </div>
+
+</form>

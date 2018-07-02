@@ -2,24 +2,18 @@ import {Component, OnInit} from '@angular/core';
 import {TeamService} from '../service/team.service';
 import {TeamModel} from '../model/team.model';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-team',
-  templateUrl: './team.component.html',
-  styleUrls: ['./team.component.css']
+  templateUrl: './teams-list.component.html',
+  styleUrls: ['./teams-list.component.css']
 })
-export class TeamComponent implements OnInit {
+export class TeamsListComponent implements OnInit {
 
   teams: TeamModel[] = [];
-  teamForm: FormGroup;
   searchText = '';
 
-  constructor(private fb: FormBuilder, private teamService: TeamService) {
-    this.teamForm = fb.group({
-      'name': [null, Validators.required],
-      'description': [null, Validators.required],
-    });
+  constructor(private teamService: TeamService) {
   }
 
   ngOnInit() {
