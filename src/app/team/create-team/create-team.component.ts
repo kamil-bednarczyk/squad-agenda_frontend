@@ -4,6 +4,7 @@ import {TeamService} from '../../service/team.service';
 import {TeamModel} from '../../model/team.model';
 import {SessionService} from '../../service/session.service';
 import {AlertService} from '../../service/alert.service';
+import {MemberModel} from '../../model/member.model';
 
 @Component({
   selector: 'app-create-team',
@@ -14,6 +15,7 @@ export class CreateTeamComponent implements OnInit {
 
   teamForm: FormGroup;
   team: TeamModel;
+  username: string;
 
   constructor(private fb: FormBuilder,
               private teamService: TeamService,
@@ -27,13 +29,22 @@ export class CreateTeamComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.team = new TeamModel();
+    this.username = this.sessionService.getUsername();
   }
 
   onSubmit(form) {
     console.log(form);
-    this.team = form;
-    this.team.ownerName = this.sessionService.getUsername();
-    this.teamService.createTeam(this.team).subscribe(req =>
-      this.alertService.success('New Team Created:' + this.team.name));
+    this.team.name = form.name;
+    this.team.description = form.description;
+    this.team.ownerName = this.username;
+
+    this.team.members.push(new MemberModel('', this.username));
+    console.log(this.team);
+    this.teamService.createTeam(this.team).subscribe(req => {
+        this.alertService.success('New Team Created:' + this.team.name);
+        this.teamForm.reset();
+      }
+    );
   }
 }

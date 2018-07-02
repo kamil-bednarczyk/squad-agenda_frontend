@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserModel} from '../model/user.model';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {SessionService} from '../service/session.service';
 import {TeamService} from '../service/team.service';
+import {TeamModel} from '../model/team.model';
 
 @Component({
   selector: 'app-my-profile',
@@ -12,6 +13,7 @@ import {TeamService} from '../service/team.service';
 export class MyProfileComponent implements OnInit {
 
   user: UserModel = new UserModel();
+  userTeams: TeamModel[] = [];
   placeholderImagePath: string;
 
   constructor(private httpClient: HttpClient,
@@ -31,6 +33,12 @@ export class MyProfileComponent implements OnInit {
     this.placeholderImagePath = '/assets/placeholder.png';
     this.httpClient.get<UserModel>('http://localhost:8092/users/username/' + this.sessionService.getUsername())
       .subscribe(response => this.user = response);
+
+    this.getTeamForMember();
+  }
+
+  getTeamForMember() {
+    this.teamService.getTeamsForUser().subscribe(req => this.userTeams = <TeamModel[]> req);
   }
 
 }

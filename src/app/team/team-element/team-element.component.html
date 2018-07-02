@@ -1,8 +1,8 @@
 <div class="team-element">
   <div class="row">
-    <div class="col-sm-2"><h2><span class="label team-name-label">{{team.name}}</span></h2></div>
-    <div class="col-sm-8"><h4>{{team.description}}</h4></div>
-    <div class="col-sm-2">
+    <div class="col-sm-3 "><h2><span class="label team-name-label">{{team.name}}</span></h2></div>
+    <div class="col-sm-6"><h4>{{team.description}}</h4></div>
+    <div class="col-sm-3">
       <div *ngIf="isUserInTeam(); else removeFromTeamButton">
         <button class="join-team-button btn btn-block" (click)="openModal(team.id + 1)">Leave</button>
       </div>
@@ -14,7 +14,7 @@
   </div>
   <div class="row">
     <div class="col-sm-12">
-      <h2><span *ngFor="let member of team.members"  class="label label-info members-label">{{member.name}}</span></h2>
+      <h2><span *ngFor="let member of team.members" class="label label-info members-label">{{member.name}}</span></h2>
       <label *ngIf="team.members.length == 0" class="empty-team-label"> There is no members in this team</label>
     </div>
   </div>

@@ -29,6 +29,8 @@ import {TeamfilterPipe} from './pipe/teamfilter.pipe';
 import {AlertComponent} from './alert/alert.component';
 import {AlertService} from './service/alert.service';
 import { CreateTeamComponent } from './team/create-team/create-team.component';
+import { SeachUsersComponent } from './header/seach-users/seach-users.component';
+import { MyTeamsComponent } from './team/my-teams/my-teams.component';
 
 const appRoutes: Routes = [
   {path: 'register', component: RegistrationComponent},
@@ -63,7 +65,9 @@ const appRoutes: Routes = [
     DummyComponent,
     TeamfilterPipe,
     AlertComponent,
-    CreateTeamComponent
+    CreateTeamComponent,
+    SeachUsersComponent,
+    MyTeamsComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

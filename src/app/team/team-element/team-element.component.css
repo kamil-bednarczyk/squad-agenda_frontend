@@ -6,21 +6,18 @@ h2 {
 h4 {
   vertical-align: middle;
   padding-left: 10px;
-
 }
 
 .join-team-button {
-  color: #f44141;
-  background-color: #f2f2f2;
   border: 1px solid #f44141;
   margin: 5px;
   border-radius: 0px;
-
+  color: #f2f2f2;
+  background-color: #f44141;
 }
 
 .join-team-button:hover {
-  color: #f2f2f2;
-  background-color: #f44141;
+  background-color: red;
 }
 
 .members-label {
@@ -44,4 +41,9 @@ h4 {
   padding: 5px;
   color: grey;
   text-align: center;
+}
+
+.tam-label{
+  margin: 0px;
+  padding: 0px;
 }

@@ -43,7 +43,7 @@ export class EventsComponent implements OnInit {
     }
     console.log(createdEvents);
     this.eventService.sendNewEvents(createdEvents).subscribe(response => {
-      this.alertService.success(createdEvents.length + ' Events has been added', true);
+      this.alertService.success(createdEvents.length + ' Events has been added');
       this.router.navigate(['/home']);
     });
   }
