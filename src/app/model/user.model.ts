@@ -5,4 +5,5 @@ export class UserModel {
   email: string;
   role: string;
   enable: boolean;
+  avatar: string[];
 }

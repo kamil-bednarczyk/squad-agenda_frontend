@@ -4,6 +4,8 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {SessionService} from '../service/session.service';
 import {TeamService} from '../service/team.service';
 import {TeamModel} from '../model/team.model';
+import {FormBuilder} from '@angular/forms';
+import {UserService} from '../service/user.service';
 
 @Component({
   selector: 'app-my-profile',
@@ -16,9 +18,15 @@ export class MyProfileComponent implements OnInit {
   userTeams: TeamModel[] = [];
   placeholderImagePath: string;
 
-  constructor(private httpClient: HttpClient,
+  selectedFiles: FileList;
+  currentFileUpload: File;
+
+  constructor(private fb: FormBuilder,
+              private httpClient: HttpClient,
               private sessionService: SessionService,
+              private userService: UserService,
               private teamService: TeamService) {
+
   }
 
   ngOnInit() {
@@ -32,7 +40,7 @@ export class MyProfileComponent implements OnInit {
 
     this.placeholderImagePath = '/assets/placeholder.png';
     this.httpClient.get<UserModel>('http://localhost:8092/users/username/' + this.sessionService.getUsername())
-      .subscribe(response => this.user = response);
+      .subscribe(response => {this.user = response; console.log(this.user)});
 
     this.getTeamForMember();
   }
@@ -41,4 +49,18 @@ export class MyProfileComponent implements OnInit {
     this.teamService.getTeamsForUser().subscribe(req => this.userTeams = <TeamModel[]> req);
   }
 
+  selectFile(event: any) {
+    if (event.target.files && event.target.files.length > 0) {
+      this.currentFileUpload = event.target.files[0];
+    }
+  }
+
+  upload() {
+    const formdata: FormData = new FormData();
+    console.log(this.currentFileUpload);
+    formdata.append('file', this.currentFileUpload);
+
+    this.userService.sendAvatar(formdata).subscribe(req => console.log(req));
+    this.selectedFiles = undefined;
+  }
 }
