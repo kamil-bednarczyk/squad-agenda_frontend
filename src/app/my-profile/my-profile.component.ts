@@ -39,10 +39,16 @@ export class MyProfileComponent implements OnInit {
     };
 
     this.placeholderImagePath = '/assets/placeholder.png';
-    this.httpClient.get<UserModel>('http://localhost:8092/users/username/' + this.sessionService.getUsername())
-      .subscribe(response => {this.user = response; console.log(this.user)});
+    this.getUserData();
 
     this.getTeamForMember();
+  }
+
+  private getUserData() {
+    this.httpClient.get<UserModel>('http://localhost:8092/users/username/' + this.sessionService.getUsername())
+      .subscribe(response => {
+        this.user = response;
+      });
   }
 
   getTeamForMember() {
@@ -60,7 +66,9 @@ export class MyProfileComponent implements OnInit {
     console.log(this.currentFileUpload);
     formdata.append('file', this.currentFileUpload);
 
-    this.userService.sendAvatar(formdata).subscribe(req => console.log(req));
-    this.selectedFiles = undefined;
+    this.userService.sendAvatar(formdata).subscribe(req =>
+      this.getUserData());
+    this.selectedFiles = null;
+    this.currentFileUpload = null;
   }
 }

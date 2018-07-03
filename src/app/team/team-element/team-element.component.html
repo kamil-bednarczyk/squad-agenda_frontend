@@ -1,15 +1,19 @@
 <div class="team-element">
   <div class="row">
     <div class="col-sm-12"><label class="label team-name-label ">{{team.name}}</label></div>
-    <div class="col-sm-8"><h4>{{team.description}}</h4></div>
-    <div class="col-sm-4">
+    <div class="col-sm-7"><h4>{{team.description}}</h4></div>
+    <div class="col-sm-5">
       <div *ngIf="isUserInTeam(); else removeFromTeamButton">
-        <button class="join-leave-team-button btn btn-block" (click)="openModal(team.id + 1)">Leave</button>
+
+        <button class="btn btn-link join-leave-team-button" (click)="openModal(team.id + 1)">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
       </div>
       <ng-template #removeFromTeamButton>
-        <button class="join-leave-team-button btn btn-block" (click)="openModal(team.id)">Join</button>
+        <button class="btn btn-link join-leave-team-button" (click)="openModal(team.id)">
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
       </ng-template>
-      <button class="join-leave-team-button btn btn-block" type="submit" routerLink="/boards/{{team.id}}" routerLinkActive="active">See</button>
+      <button class="btn btn-link join-leave-team-button" type="submit" routerLink="/boards/{{team.id}}" routerLinkActive="active">
+         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></button>
     </div>
   </div>
   <div class="row">

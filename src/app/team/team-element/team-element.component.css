@@ -4,10 +4,8 @@ h2 {
 }
 
 button.join-leave-team-button {
-  margin: 1px;
-  border: 1px solid #f44141;
-  color: #f2f2f2;
-  background-color: #f44141;
+  width: 50%;
+  font-size: 18px;
 }
 
 label, button {
