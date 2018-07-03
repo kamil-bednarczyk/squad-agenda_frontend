@@ -1,3 +1,11 @@
-<p *ngFor="let team of teams">
-  {{team.name}}
-</p>
+<div class="my-teams">
+  <div class="row">
+    <div class="col-sm-12"></div>
+    <h2>My teams:</h2></div>
+
+  <div class="row">
+    <label class="col-sm-12 my-team-single-element" *ngFor="let team of teams">
+      {{team.name}}
+    </label>
+  </div>
+</div>

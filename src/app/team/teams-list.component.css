@@ -3,20 +3,25 @@
   margin-top: 40px;
 }
 
-
-#search-input {
-  margin-top: 20px;
-  padding: 5px;
-  width: 100%;
-}
-
 .single-team-area {
+  margin-bottom: 3px;
   min-height: 20vh;
-  margin: 5px;
-  background-color: lightgray;
-  padding: 20px 20px 5px;
+
 }
 
 h2 {
   font-family: "Arial Black", Gadget, sans-serif;
+}
+
+.available-teams-search{
+  width: 100%;
+}
+
+.available-teams-search label{
+  width: 50%;
+}
+.available-teams-search input{
+  margin-top: 20px;
+  padding: 5px;
+  width: 50%;
 }

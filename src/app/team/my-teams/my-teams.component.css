@@ -1,0 +1,22 @@
+h2 {
+  font-family: "Arial Black", Gadget, sans-serif;
+}
+
+.my-team-single-element {
+  background-color: cadetblue;
+  width: 100%;
+  height: 6vh;
+  display: block;
+  text-align: center;
+  line-height: 150%;
+  font-size: .85em;
+}
+
+.my-teams {
+  margin: 10px;
+}
+
+label {
+  padding: 0px;
+}
+

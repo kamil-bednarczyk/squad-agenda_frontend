@@ -3,47 +3,48 @@ h2 {
   margin-top: 10px;
 }
 
-h4 {
-  vertical-align: middle;
-  padding-left: 10px;
-}
-
-.join-team-button {
+button.join-leave-team-button {
+  margin: 1px;
   border: 1px solid #f44141;
-  margin: 5px;
-  border-radius: 0px;
   color: #f2f2f2;
   background-color: #f44141;
 }
 
-.join-team-button:hover {
-  background-color: red;
+label, button {
+  border-radius: 0;
 }
 
-.members-label {
-  border-radius: 0;
-  margin: 1px;
-}
-
-.team-name-label {
-  color: white;
-  font-family: "Arial Black", Gadget, sans-serif;
-  border-radius: 0;
+div.member-label {
+  width: 25%;
   padding: 5px;
-  background-color: grey;
+  display: inline-block;
 }
 
-.empty-team-label {
+div.member-label > label {
   width: 100%;
-  height: 100%;
-  background-color: white;
-  margin: 0;
-  padding: 5px;
-  color: grey;
+
+  font-size: 18px;
+  padding: 10px;
+  background-color: coral;
   text-align: center;
 }
 
-.tam-label{
-  margin: 0px;
-  padding: 0px;
+label.empty-team-label {
+  vertical-align: center;
+  text-align: center;
+  align-items: center;
+  display: inline-block;
+}
+
+.team-name-label {
+  color: black;
+  background-color: cadetblue;
+  display: block;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.team-element {
+  padding: 5px;
+  border: 1px solid #f44141;
 }

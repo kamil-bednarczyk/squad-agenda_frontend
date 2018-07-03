@@ -4,7 +4,7 @@
       <div class="col-sm-2"></div>
 
       <a routerLink="/home" routerLinkActive="active"><span class="glyphicon glyphicon-home"></span>  Home</a>
-      <div class="col-sm-4">
+      <div class="col-sm-7">
         <div *ngIf="isLoggedIn();else logoutbutton">
           <a routerLink="/my-profile" routerLinkActive="active"><span class="glyphicon glyphicon-user"></span> Profile</a>
           <a routerLink="/events" routerLinkActive="active"><span class="glyphicon glyphicon-star-empty"></span> Events</a>
@@ -22,7 +22,7 @@
         </ng-template>
       </div>
 
-      <div class="col-sm-2"></div>
+      <div class="col-sm-1"></div>
     </div>
 
   </nav>
