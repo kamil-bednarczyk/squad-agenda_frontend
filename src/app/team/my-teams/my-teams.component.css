@@ -1,22 +1,28 @@
+.my-teams {
+  margin: 10px;
+}
+
 h2 {
   font-family: "Arial Black", Gadget, sans-serif;
 }
 
-.my-team-single-element {
+button.my-team-single-element {
   background-color: cadetblue;
   width: 100%;
   height: 6vh;
   display: block;
   text-align: center;
   line-height: 150%;
-  font-size: .85em;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  border: 0;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+
 }
 
-.my-teams {
-  margin: 10px;
-}
-
-label {
-  padding: 0px;
+button.my-team-single-element:hover {
+  background-color: darkcyan;
 }
 

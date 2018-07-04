@@ -1,11 +1,8 @@
 <div class="my-teams">
   <div class="row">
-    <div class="col-sm-12"></div>
     <h2>My teams:</h2></div>
-
-  <div class="row">
-    <label class="col-sm-12 my-team-single-element" *ngFor="let team of teams">
+    <div class="col-sm-12"></div>
+    <button class=" my-team-single-element " *ngFor="let team of teams" routerLink="/boards/{{team.id}}" routerLinkActive="active">
       {{team.name}}
-    </label>
-  </div>
+    </button>
 </div>

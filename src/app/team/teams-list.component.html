@@ -2,13 +2,13 @@
   <div class="row">
     <div class="col-sm-7">
       <div class="row available-teams-search">
-        <div class="col-sm12">
+        <div class="col-sm-12">
         <label><h2>Available Teams:</h2></label>
         <input type="text" [(ngModel)]="searchText" placeholder="Search Team...">
         </div>
       </div>
       <div class="row">
-        <div *ngFor="let team of teams | teamfilter: searchText" class="row single-team-area col-sm-12">
+        <div *ngFor="let team of teams | teamfilter: searchText" class="row col-sm-12">
           <app-team-element [team]="team"></app-team-element>
         </div>
       </div>
