@@ -1,7 +1,9 @@
-label {
+label.event-label {
   height: 100%;
   text-align: center;
   border: 2px solid white;
+  border-radius: 10px;
+  font-weight: bold;
 }
 
 div{
@@ -16,6 +18,7 @@ img {
 }
 
 p{
+  margin: 0;
   text-align: center;
 }
 
@@ -39,6 +42,3 @@ p{
   background-color: #333333
 }
 
-row{
-  margin: 0px;
-}

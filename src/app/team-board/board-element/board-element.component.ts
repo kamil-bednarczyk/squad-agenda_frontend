@@ -3,6 +3,7 @@ import {MemberModel} from '../../model/member.model';
 import {EventService} from '../../service/event.service';
 import {EventModel} from '../../model/event.model';
 import {TeamBoardComponent} from '../team-board.component';
+import {UserService} from '../../service/user.service';
 
 @Component({
   selector: 'app-board-element',
@@ -16,8 +17,9 @@ export class BoardElementComponent implements OnInit {
   width;
   placeholderImagePath: string;
   events: EventModel[] = [];
+  avatar: string[];
 
-  constructor(private eventService: EventService) {
+  constructor(private eventService: EventService, private userService: UserService) {
   }
 
   ngOnInit() {
@@ -27,6 +29,8 @@ export class BoardElementComponent implements OnInit {
     const today = new Date();
     const tomorrow = new Date();
     tomorrow.setDate(today.getDate() + TeamBoardComponent.NUMBER_OF_DAYS);
+
+    this.userService.getAvatar(this.member.name).subscribe(req => this.avatar = <string[]>req);
 
     this.eventService.getEventsBeetwenDates(this.member.name, today, tomorrow).subscribe(events => {
       this.events = <EventModel[]> events;

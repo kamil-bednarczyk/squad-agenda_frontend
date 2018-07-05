@@ -1,9 +1,12 @@
-<div class="row" >
-  <div class="img-container col-sm-1"  [style.height]="height"><img [src]="placeholderImagePath">
-    <p >{{member.name}}</p>
+<div class="row">
+  <div class="img-container col-sm-1" [style.height]="height">
+
+    <img *ngIf="avatar != null;else placeholder" [src]="'data:image/png;base64,'+ avatar">
+    <ng-template #placeholder><img [src]="placeholderImagePath"></ng-template>
+ <p>{{member.name}}</p>
   </div>
-  <div class="events col-sm-11" [style.height]="height" >
-    <label [ngClass]="event.type" [style.width]="width" *ngFor="let event of events">{{event.type}}<br>{{event.when}}</label>
+  <div class="events col-sm-11" [style.height]="height">
+    <label class="event-label" [ngClass]="event.type" [style.width]="width" *ngFor="let event of events"><br>{{event.type}}<br>{{event.when}}</label>
   </div>
 
 </div>
