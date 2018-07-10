@@ -1,27 +1,34 @@
-# SquadAgendaFrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+###OVERVIEW
 
-## Development server
+![alt text](src/assets/app.jpg)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### SquadAgendaFrontend
 
-## Build
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### SquadAgendaBackend
 
-## Running unit tests
+#### User Service
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+[![Build Status](https://travis-ci.org/kamil-bednarczyk/user_service.svg?branch=master)](https://travis-ci.org/kamil-bednarczyk/user_service)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=sa.common%3Auser_service&metric=alert_status)](https://sonarcloud.io/dashboard?id=sa.common%3Auser_service)
+[![Test Coverage](https://sonarcloud.io/api/project_badges/measure?project=sa.common%3Auser_service&metric=coverage)](https://sonarcloud.io/dashboard?id=sa.common%3Auser_service)
 
-## Running end-to-end tests
+#### Team Service
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+[![Build Status](https://travis-ci.org/kamil-bednarczyk/team_service.svg?branch=master)](https://travis-ci.org/kamil-bednarczyk/team_service)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=sa.common%3Ateam_service&metric=alert_status)](https://sonarcloud.io/organizations/kamil-bednarczyk-github/projects)
+[![Test coverage](https://sonarcloud.io/api/project_badges/measure?project=sa.common%3Ateam_service&metric=coverage)](https://sonarcloud.io/organizations/kamil-bednarczyk-github/projects)
 
-## Further help
+#### Event Service
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+[![Build Status](https://travis-ci.org/kamil-bednarczyk/user_service.svg?branch=master)](https://travis-ci.org/kamil-bednarczyk/user_service)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=sa.common%3Auser_service&metric=alert_status)](https://sonarcloud.io/dashboard?id=sa.common%3Auser_service)
+[![Test Coverage](https://sonarcloud.io/api/project_badges/measure?project=sa.common%3Auser_service&metric=coverage)](https://sonarcloud.io/dashboard?id=sa.common%3Auser_service)
+
+#### Eureka Service
+
+#### Gateway Service

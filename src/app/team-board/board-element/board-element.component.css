@@ -1,5 +1,7 @@
 label.event-label {
   height: 100%;
+  color: white;
+  font-size: 18px;
   text-align: center;
   border: 2px solid white;
   border-radius: 10px;
@@ -26,8 +28,9 @@ p{
   visibility: hidden;
 }
 
-.VACATION {
-  background-color: gold
+.VACATION{
+  background-size: contain;
+  background: url('/assets/palm-trees-fixed.jpg') center;
 }
 
 .SICK_LEAVE {
@@ -41,4 +44,3 @@ p{
 .OTHER {
   background-color: #333333
 }
-
