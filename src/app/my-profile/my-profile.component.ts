@@ -30,17 +30,8 @@ export class MyProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': 'Bearer ' + localStorage.getItem('access_token'),
-        'Content-Type': 'application/json',
-        'accept': '*/*'
-      })
-    };
-
     this.placeholderImagePath = '/assets/placeholder.png';
     this.getUserData();
-
     this.getTeamForMember();
   }
 
@@ -63,7 +54,6 @@ export class MyProfileComponent implements OnInit {
 
   upload() {
     const formdata: FormData = new FormData();
-    console.log(this.currentFileUpload);
     formdata.append('file', this.currentFileUpload);
 
     this.userService.sendAvatar(formdata).subscribe(req =>

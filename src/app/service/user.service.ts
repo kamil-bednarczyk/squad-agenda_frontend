@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {SessionService} from './session.service';
-import {HttpClient, HttpRequest} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
 
 @Injectable()
 export class UserService {
@@ -16,7 +16,7 @@ export class UserService {
   sendAvatar(form: FormData) {
     const req = new HttpRequest('POST', UserService.AVATARs_URLS + this.sessionService.getUsername(), form, {
       reportProgress: true,
-      responseType: 'text'
+      responseType: 'text',
     });
 
     return this.httpClient.request(req);

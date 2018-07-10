@@ -22,9 +22,9 @@ p{
   text-align: center;
 }
 
-/*.NO_EVENT {
-  background-color: grey
-}*/
+.NO_EVENT {
+  visibility: hidden;
+}
 
 .VACATION {
   background-color: gold

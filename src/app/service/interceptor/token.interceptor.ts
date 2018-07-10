@@ -21,9 +21,9 @@ export class TokenInterceptor implements HttpInterceptor {
       for (const key of request.headers.keys()) {
         headerSettings[key] = request.headers.getAll(key);
       }
-     // headerSettings['Content-Type'] = 'application/json';
+      //headerSettings['Content-Type'] = 'application/json';
       headerSettings['Authorization'] = 'Bearer ' + token;
-    //  headerSettings['accept'] = '*/*';
+      //  headerSettings['accept'] = '*/*';
       const newHeader = new HttpHeaders(headerSettings);
 
       changedRequest = request.clone({

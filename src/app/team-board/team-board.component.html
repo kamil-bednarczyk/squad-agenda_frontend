@@ -1,7 +1,7 @@
 <div class="teamboard">
   <div class="row days">
     <label class="col-sm-1" >{{team.name}}</label>
-    <div class="col-sm-11" ><label *ngFor="let day of days" [style.width]="width">{{day | date: "dd-MM"}}</label>
+    <div class="col-sm-11" ><label *ngFor="let day of days" [style.width]="width">{{day | date: "EEEE dd.MM"}}</label>
     </div>
   </div>
   <div *ngFor="let member of team.members" [style.height]="calculateWidthPerUser()">

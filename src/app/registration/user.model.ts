@@ -3,4 +3,5 @@ export class User {
   public password: string;
   public email: string;
   public role: string;
+  public enabled: boolean;
 }

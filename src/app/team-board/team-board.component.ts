@@ -50,7 +50,7 @@ export class TeamBoardComponent implements OnInit, OnDestroy {
   }
 
   calculateWidthPerUser() {
-
-    this.height = (100 / (this.team.members.length + 1)) + 'vh';
+    const calculatedHeight = (100 / (this.team.members.length + 1));
+    this.height = (calculatedHeight > 26 ? 25 : calculatedHeight) + 'vh';
   }
 }
