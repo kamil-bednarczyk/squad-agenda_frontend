@@ -1,5 +1,8 @@
 
-### OVERVIEW
+
+## OVERVIEW
+
+Overview of general architecture. 
 
 ![alt text](src/assets/app.jpg)
 
