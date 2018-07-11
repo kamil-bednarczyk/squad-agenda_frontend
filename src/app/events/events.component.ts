@@ -69,7 +69,7 @@ export class EventsComponent implements OnInit {
   private initWeekDays() {
     this.today = new Date();
     const tomorrow = new Date();
-    tomorrow.setDate(this.today.getDate() + 7);
+    tomorrow.setDate(this.today.getDate() + 30);
     this.eventService.getEventsBeetwenDates(this.sessionService.getUsername(),
       this.today, tomorrow)
       .subscribe(events => {

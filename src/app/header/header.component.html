@@ -2,9 +2,7 @@
   <nav class="navbar-fixed-top">
     <div id="navbar">
       <div class="col-sm-2"></div>
-
       <a routerLink="/home" routerLinkActive="active"><span class="glyphicon glyphicon-home"></span>  Home</a>
-      <a routerLink="/rooster" routerLinkActive="active">Projects</a>
       <div class="col-sm-7">
         <div *ngIf="isLoggedIn();else logoutbutton">
           <a routerLink="/my-profile" routerLinkActive="active"><span class="glyphicon glyphicon-user"></span> Profile</a>
@@ -12,16 +10,13 @@
           <a routerLink="/teams" routerLinkActive="active"><span class="glyphicon glyphicon-flag"></span> Teams</a>
           <a id="logoutbutton"(click)="logout()" ><span class="glyphicon glyphicon-log-out"></span> Log out</a>
         </div>
-      <!--  <a routerLink="/boards" routerLinkActive="active"><span class="glyphicon glyphicon-th-list"></span> Boards</a>-->
       </div>
-
       <div class="col-sm-2">
         <ng-template #logoutbutton>
           <a routerLink="/register" routerLinkActive="active"><span class="glyphicon glyphicon-pencil"></span> Registration</a>
           <a routerLink="/login" routerLinkActive="active"><span class="glyphicon glyphicon-log-in"></span> Log in</a>
         </ng-template>
       </div>
-
       <div class="col-sm-1"></div>
     </div>
 

@@ -52,7 +52,7 @@ div label.date-name-label {
 }
 
 label.date-name-label {
-  background-color: #f44141;
+  background-color: darkcyan;
   display: table-cell;
   color: #f2f2f2;
 }

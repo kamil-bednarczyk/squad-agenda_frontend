@@ -32,7 +32,6 @@ import {CreateTeamComponent} from './team/create-team/create-team.component';
 import {SeachUsersComponent} from './header/seach-users/seach-users.component';
 import {MyTeamsComponent} from './team/my-teams/my-teams.component';
 import {UserService} from './service/user.service';
-import {RoosterComponent} from './rooster/rooster.component';
 
 const appRoutes: Routes = [
   {path: 'register', component: RegistrationComponent},
@@ -42,7 +41,6 @@ const appRoutes: Routes = [
   {path: 'dummy', component: DummyComponent},
   {path: 'boards/:id', component: TeamBoardComponent},
   {path: '', component: HomeComponent},
-  {path: 'rooster', component: RoosterComponent},
   {path: 'teams', component: TeamsListComponent},
   {
     path: 'home', component: HomeComponent, children: []
@@ -70,8 +68,7 @@ const appRoutes: Routes = [
     AlertComponent,
     CreateTeamComponent,
     SeachUsersComponent,
-    MyTeamsComponent,
-    RoosterComponent
+    MyTeamsComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
